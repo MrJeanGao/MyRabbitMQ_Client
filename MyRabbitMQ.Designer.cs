@@ -30,10 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyRabbitMQ));
             this.groupBox_sendContent = new System.Windows.Forms.GroupBox();
+            this.textBox_sendContent = new System.Windows.Forms.TextBox();
             this.groupBox_showLog = new System.Windows.Forms.GroupBox();
+            this.richTextBox_showLog = new System.Windows.Forms.RichTextBox();
             this.label_host = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox_config = new System.Windows.Forms.GroupBox();
+            this.textBox_listenQueue = new System.Windows.Forms.TextBox();
+            this.label_listenQueue = new System.Windows.Forms.Label();
+            this.button_listenMsg = new System.Windows.Forms.Button();
             this.textBox_connectState = new System.Windows.Forms.TextBox();
             this.label_connectState = new System.Windows.Forms.Label();
             this.button_disconnect = new System.Windows.Forms.Button();
@@ -50,11 +55,6 @@
             this.textBox_port = new System.Windows.Forms.TextBox();
             this.label_port = new System.Windows.Forms.Label();
             this.textBox_host = new System.Windows.Forms.TextBox();
-            this.button_listenMsg = new System.Windows.Forms.Button();
-            this.textBox_listenQueue = new System.Windows.Forms.TextBox();
-            this.label_listenQueue = new System.Windows.Forms.Label();
-            this.richTextBox_showLog = new System.Windows.Forms.RichTextBox();
-            this.textBox_sendContent = new System.Windows.Forms.TextBox();
             this.groupBox_sendContent.SuspendLayout();
             this.groupBox_showLog.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -71,6 +71,15 @@
             this.groupBox_sendContent.TabStop = false;
             this.groupBox_sendContent.Text = "SendContent";
             // 
+            // textBox_sendContent
+            // 
+            this.textBox_sendContent.Location = new System.Drawing.Point(21, 34);
+            this.textBox_sendContent.Multiline = true;
+            this.textBox_sendContent.Name = "textBox_sendContent";
+            this.textBox_sendContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox_sendContent.Size = new System.Drawing.Size(612, 381);
+            this.textBox_sendContent.TabIndex = 0;
+            // 
             // groupBox_showLog
             // 
             this.groupBox_showLog.Controls.Add(this.richTextBox_showLog);
@@ -80,6 +89,14 @@
             this.groupBox_showLog.TabIndex = 1;
             this.groupBox_showLog.TabStop = false;
             this.groupBox_showLog.Text = "ShowLog";
+            // 
+            // richTextBox_showLog
+            // 
+            this.richTextBox_showLog.Location = new System.Drawing.Point(6, 34);
+            this.richTextBox_showLog.Name = "richTextBox_showLog";
+            this.richTextBox_showLog.Size = new System.Drawing.Size(644, 381);
+            this.richTextBox_showLog.TabIndex = 22;
+            this.richTextBox_showLog.Text = "";
             // 
             // label_host
             // 
@@ -129,6 +146,34 @@
             this.groupBox_config.TabStop = false;
             this.groupBox_config.Text = "Config";
             // 
+            // textBox_listenQueue
+            // 
+            this.textBox_listenQueue.Location = new System.Drawing.Point(165, 383);
+            this.textBox_listenQueue.Name = "textBox_listenQueue";
+            this.textBox_listenQueue.Size = new System.Drawing.Size(227, 35);
+            this.textBox_listenQueue.TabIndex = 21;
+            this.textBox_listenQueue.Text = "test.queue2";
+            // 
+            // label_listenQueue
+            // 
+            this.label_listenQueue.AutoSize = true;
+            this.label_listenQueue.Location = new System.Drawing.Point(17, 386);
+            this.label_listenQueue.Name = "label_listenQueue";
+            this.label_listenQueue.Size = new System.Drawing.Size(142, 24);
+            this.label_listenQueue.TabIndex = 20;
+            this.label_listenQueue.Text = "ListenQueue";
+            // 
+            // button_listenMsg
+            // 
+            this.button_listenMsg.BackColor = System.Drawing.Color.Cyan;
+            this.button_listenMsg.Location = new System.Drawing.Point(1075, 268);
+            this.button_listenMsg.Name = "button_listenMsg";
+            this.button_listenMsg.Size = new System.Drawing.Size(162, 58);
+            this.button_listenMsg.TabIndex = 19;
+            this.button_listenMsg.Text = "ListenMsg";
+            this.button_listenMsg.UseVisualStyleBackColor = false;
+            this.button_listenMsg.Click += new System.EventHandler(this.button_listenMsg_Click);
+            // 
             // textBox_connectState
             // 
             this.textBox_connectState.Location = new System.Drawing.Point(1075, 40);
@@ -174,7 +219,7 @@
             this.textBox_publishExchange.Name = "textBox_publishExchange";
             this.textBox_publishExchange.Size = new System.Drawing.Size(227, 35);
             this.textBox_publishExchange.TabIndex = 14;
-            this.textBox_publishExchange.Text = "TestExchange1";
+            this.textBox_publishExchange.Text = "test.exchange1";
             // 
             // label_publishExchange
             // 
@@ -272,51 +317,6 @@
             this.textBox_host.Size = new System.Drawing.Size(227, 35);
             this.textBox_host.TabIndex = 3;
             this.textBox_host.Text = "127.0.0.1";
-            // 
-            // button_listenMsg
-            // 
-            this.button_listenMsg.BackColor = System.Drawing.Color.Cyan;
-            this.button_listenMsg.Location = new System.Drawing.Point(1075, 268);
-            this.button_listenMsg.Name = "button_listenMsg";
-            this.button_listenMsg.Size = new System.Drawing.Size(162, 58);
-            this.button_listenMsg.TabIndex = 19;
-            this.button_listenMsg.Text = "ListenMsg";
-            this.button_listenMsg.UseVisualStyleBackColor = false;
-            this.button_listenMsg.Click += new System.EventHandler(this.button_listenMsg_Click);
-            // 
-            // textBox_listenQueue
-            // 
-            this.textBox_listenQueue.Location = new System.Drawing.Point(165, 383);
-            this.textBox_listenQueue.Name = "textBox_listenQueue";
-            this.textBox_listenQueue.Size = new System.Drawing.Size(227, 35);
-            this.textBox_listenQueue.TabIndex = 21;
-            this.textBox_listenQueue.Text = "TestQueue2";
-            // 
-            // label_listenQueue
-            // 
-            this.label_listenQueue.AutoSize = true;
-            this.label_listenQueue.Location = new System.Drawing.Point(17, 386);
-            this.label_listenQueue.Name = "label_listenQueue";
-            this.label_listenQueue.Size = new System.Drawing.Size(142, 24);
-            this.label_listenQueue.TabIndex = 20;
-            this.label_listenQueue.Text = "ListenQueue";
-            // 
-            // richTextBox_showLog
-            // 
-            this.richTextBox_showLog.Location = new System.Drawing.Point(6, 34);
-            this.richTextBox_showLog.Name = "richTextBox_showLog";
-            this.richTextBox_showLog.Size = new System.Drawing.Size(644, 381);
-            this.richTextBox_showLog.TabIndex = 22;
-            this.richTextBox_showLog.Text = "";
-            // 
-            // textBox_sendContent
-            // 
-            this.textBox_sendContent.Location = new System.Drawing.Point(21, 34);
-            this.textBox_sendContent.Multiline = true;
-            this.textBox_sendContent.Name = "textBox_sendContent";
-            this.textBox_sendContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox_sendContent.Size = new System.Drawing.Size(612, 381);
-            this.textBox_sendContent.TabIndex = 0;
             // 
             // MyRabbitMQ
             // 

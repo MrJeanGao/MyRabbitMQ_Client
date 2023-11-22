@@ -125,7 +125,7 @@ namespace MyRabbitMQ_Client
             channel.QueueDeclare(queue: listenQueue, durable: true, exclusive: false, autoDelete: false, arguments: null);
 
             // 创建消费者
-            var consumer = new EventingBasicConsumer(_channel);
+            var consumer = new EventingBasicConsumer(channel);
 
             // 注册消息接收事件
             consumer.Received += (model, ea) =>
@@ -141,7 +141,7 @@ namespace MyRabbitMQ_Client
             };
 
             // 启动消费者监听队列
-            _channel.BasicConsume(queue: listenQueue, autoAck: true, consumer: consumer);
+            channel.BasicConsume(queue: listenQueue, autoAck: true, consumer: consumer);
         }
     }
 }
